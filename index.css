@@ -9,7 +9,42 @@ body {
   height: 100vh;
 }
 
-span {
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #042104;
+}
+
+.loader {
+  position: relative;
+}
+
+.loader span {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  left: -200px;
+  transform-origin: right;
+  transform: rotate(calc(18deg * var(--i)));
+}
+
+.loader span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background-color: #00ff0a;
+  border-radius: 50%;
+  animation: heart 2s linear infinite;
+  animation-delay: calc(-0.1s * var(--i));
+  box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a,
+    0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+}
+
+.heart1 {
   position: absolute;
   background: url('/heart.png');
   pointer-events: none;
@@ -30,5 +65,17 @@ span {
     transform: translate3d(-50%, -1000%, 0);
     opacity: 0;
     filter: hue-rotate(720deg);
+  }
+}
+
+@keyframes heart {
+  0% {
+    transform: translateX(0) scale(0.5);
+  }
+  50% {
+    transform: translateX(200px) scale(1);
+  }
+  100% {
+    transform: translateX(0) scale(0.5);
   }
 }

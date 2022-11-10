@@ -12,6 +12,7 @@
       document.addEventListener('mousemove', function (e) {
         const body = document.querySelector('body');
         const heart = document.createElement('span');
+        heart.className = 'heart1';
         heart.style.left = `${e.offsetX}px`;
         heart.style.top = `${e.offsetY}px`;
         const size = Math.random() * 100;
